@@ -11,7 +11,7 @@ PATH=/usr/local/bin:${PATH}
 #
 APP_NAME=$(basename $0)
 APP_DIR=$(dirname $0)
-APP_VER="1.5.2"
+APP_VER="1.5.3"
 APP_WEB="http://www.sergiotocalini.com.ar/"
 #
 #################################################################################
@@ -21,7 +21,7 @@ APP_WEB="http://www.sergiotocalini.com.ar/"
 #  Load Oracle Environment
 # -------------------------
 #
-[ -x ${APP_DIR}/zabora.conf ] || . ${APP_DIR}/zabora.conf
+[ -x ${APP_DIR}/${APP_NAME%.*}.conf ] || . ${APP_DIR}/${APP_NAME%.*}.conf
 #
 #################################################################################
 
@@ -87,7 +87,7 @@ else
     . /usr/local/bin/oraenv > /dev/null
 fi
 if [[ -f "${SQL%.sql}.sql" ]]; then
-    rval=`sqlplus -s ${auth_user}/${auth_pass} @${SQL} "${SQL_ARGS}"`
+    rval=`sqlplus -s ${ORACLE_USER}/${ORACLE_PASS} @${SQL} "${SQL_ARGS}"`
     rcode="${?}"
     if [[ ${JSON} -eq 1 ]]; then
        set -A rval ${rval}
