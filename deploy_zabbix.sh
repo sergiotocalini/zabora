@@ -3,7 +3,7 @@ SOURCE_DIR=$(dirname $0)
 ZABBIX_DIR=/etc/zabbix
 
 ORACLE_USER=${1:-monitor}
-ORACLE_PASS=${2}
+ORACLE_PASS=${2:-xxxxxxx}
 
 mkdir -p ${ZABBIX_DIR}/scripts/agentd/zabora
 cp -rpv  ${SOURCE_DIR}/zabora/sql                 ${ZABBIX_DIR}/scripts/agentd/zabora/
