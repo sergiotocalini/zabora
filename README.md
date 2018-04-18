@@ -16,6 +16,15 @@ Zabbix Agent - Oracle
     #~
 
 # Deploy
+The username and the password can't be empty.
+Default variables:
+
+NAME|VALUE
+----|-----
+ORACLE_USER|monitor
+ORACLE_PASS|<nodefault>
+
+*Note: this variables has to be saved in the config file (zabora.conf) in the same directory than the script.*
 
 ## Zabbix
 
