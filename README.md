@@ -53,7 +53,7 @@ ORACLE_PASS|xxxxxxx
 
 <pre><code>
 #~ git clone https://github.com/sergiotocalini/zabora.git
-#~ sudo ./zabora/deploy_zabbix.sh "<ORACLE_USER>" "<ORACLE_PASS>"
+#~ sudo ./zabora/deploy_zabbix.sh "${ORACLE_USER}" "${ORACLE_PASS}"
 #~ sudo systemctl restart zabbix-agent
 </code></pre>
 
