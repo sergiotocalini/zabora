@@ -18,7 +18,7 @@ usage() {
     exit 1
 }
 
-while getopts ":c:f:i:j:p:t:u:z:Fh" OPTION; do
+while getopts ":o:p:u:P:Z:FH" OPTION; do
     case ${OPTION} in
 	F)
 	    FORCE=true
