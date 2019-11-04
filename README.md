@@ -8,15 +8,15 @@ Zabbix Agent - Oracle
 ### Debian/Ubuntu
 
 ```
-#~ sudo apt install ksh
-#~
+~# sudo apt install ksh
+~#
 ```
 
 ### Red Hat
 
 ```
 #~ sudo yum install ksh
-#~
+~#
 ```
 
 ## User account
@@ -46,15 +46,35 @@ NAME|VALUE
 ----|-----
 ORACLE_USER|monitor
 ORACLE_PASS|xxxxxxx
+ORACLE_OSID|oracle
 
-*Note: these variables have to be saved in the config file (zabora.conf) in the same directory than the script.*
+*__Note:__ these variables have to be saved in the config file (zabora.conf) in
+the same directory than the script.*
 
 ## Zabbix
 
-```
-#~ git clone https://github.com/sergiotocalini/zabora.git
-#~ sudo ./zabora/deploy_zabbix.sh "${ORACLE_USER}" "${ORACLE_PASS}"
-#~ sudo systemctl restart zabbix-agent
+```bash
+~# git clone https://github.com/sergiotocalini/zabora.git
+~# ./zabora/deploy_zabbix.sh -H
+Usage:  [Options]
+
+Options:
+  -F            Force configuration overwrite.
+  -H            Displays this help message.
+  -P            Installation prefix (SCRIPT_DIR).
+  -Z            Zabbix agent include files directory (ZABBIX_INC).
+  -u            Configuration key ORACLE_USER.
+  -p            Configuration key ORACLE_PASS.
+  -o            Configuration key ORACLE_OSID.
+
+Please send any bug reports to sergiotocalini@gmail.com (https://github.com/sergiotocalini)
+~# ORACLE_USER="monitor"
+~# ORACLE_PASS="xxxxxxx"
+~# ORACLE_OSID="oracle"
+~# sudo ./zabora/deploy_zabbix.sh -u "${ORACLE_USER}" -p "${ORACLE_PASS}" -o "${ORACLE_OSID}"
+~# sudo systemctl restart zabbix-agent
 ```
 
-*Note: the installation has to be executed on the zabbix agent host and you have to import the template on the zabbix web. The default installation directory is /etc/zabbix/scripts/agentd/zabora*
+*__Note:__ the installation has to be executed on the zabbix agent host and you have
+to import the template on the zabbix web. The default installation directory is
+/etc/zabbix/scripts/agentd/zabora*

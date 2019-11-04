@@ -1,2 +1,3 @@
 ORACLE_USER="monitor"
 ORACLE_PASS="xxxxxxx"
+ORACLE_OSID="oracle"
