@@ -14,7 +14,7 @@ usage() {
     echo "  -p            Configuration key ORACLE_PASS."
     echo "  -u            Configuration key ORACLE_USER."
     echo ""
-    echo "Please send any bug reports to sergiotocalini@gmail.com"
+    echo "Please send any bug reports to https://github.com/sergiotocalini/zabora/issues"
     exit 1
 }
 

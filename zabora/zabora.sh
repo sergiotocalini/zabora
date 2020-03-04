@@ -11,8 +11,8 @@ PATH=/usr/local/bin:${PATH}
 #
 APP_NAME=$(basename $0)
 APP_DIR=$(dirname $0)
-APP_VER="1.5.3"
-APP_WEB="http://www.sergiotocalini.com.ar/"
+APP_VER="1.5.4"
+APP_WEB="https://sergiotocalini.github.io"
 #
 #################################################################################
 
@@ -21,7 +21,7 @@ APP_WEB="http://www.sergiotocalini.com.ar/"
 #  Load Oracle Environment
 # -------------------------
 #
-[ -x ${APP_DIR}/${APP_NAME%.*}.conf ] || . ${APP_DIR}/${APP_NAME%.*}.conf
+[ -r ${APP_DIR}/${APP_NAME%.*}.conf ] || . ${APP_DIR}/${APP_NAME%.*}.conf
 #
 #################################################################################
 
@@ -41,7 +41,7 @@ usage() {
     echo "  -j            Jsonify output."
     echo "  -v            Show the script version."
     echo ""
-    echo "Please send any bug reports to sergiotocalini@gmail.com"
+    echo "Please send any bug reports to https://github.com/sergiotocalini/zabora/issues"
     exit 1
 }
 
@@ -49,27 +49,32 @@ version() {
     echo "${APP_NAME%.*} ${APP_VER}"
     exit 1
 }
+
+zabbix_not_support() {
+    echo "ZBX_NOTSUPPORTED"
+    exit 1
+}
 #
 #################################################################################
 
 #################################################################################
-while getopts "s::a:o:hvj:" OPTION; do
+while getopts ":a:o:s:Hjv" OPTION; do
     case ${OPTION} in
-	h)
+	H)
 	    usage
 	    ;;
-	s)
-	    SQL="${APP_DIR}/sql/${OPTARG}"
-	    ;;
-	o)
-	    ORACLE_SID=${OPTARG}
+	a)
+	    SQL_ARGS=${OPTARG}
 	    ;;
         j)
             JSON=1
 	    JSON_ATTR=${OPTARG}
             ;;
-	a)
-	    SQL_ARGS=${OPTARG}
+	o)
+	    ORACLE_SID=${OPTARG}
+	    ;;
+	s)
+	    SQL="${APP_DIR}/sql/${OPTARG}"
 	    ;;
 	v)
 	    version
@@ -108,8 +113,7 @@ if [[ -f "${SQL%.sql}.sql" ]]; then
        echo ${rval:-0}
     fi
 else
-    echo "ZBX_NOTSUPPORTED"
-    rcode="1"
+    zabbix_not_support
 fi
 
 exit ${rcode}
