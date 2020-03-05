@@ -21,7 +21,7 @@ APP_WEB="https://sergiotocalini.github.io"
 #  Load Oracle Environment
 # -------------------------
 #
-[ -r ${APP_DIR}/${APP_NAME%.*}.conf ] || . ${APP_DIR}/${APP_NAME%.*}.conf
+[ -r ${APP_DIR}/${APP_NAME%.*}.conf ] && . ${APP_DIR}/${APP_NAME%.*}.conf
 #
 #################################################################################
 
