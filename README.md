@@ -1,5 +1,11 @@
 # zabora
-Zabbix Agent - Oracle
+Oracle Monitoring
+
+This script is part of a monitoring solution that allows to monitor several
+services and applications.
+
+For more information about this monitoring solution please check out this post
+on my [site](https://sergiotocalini.github.io/project/monitoring).
 
 # Dependencies
 ## Packages
