@@ -7,6 +7,11 @@ services and applications.
 For more information about this monitoring solution please check out this post
 on my [site](https://sergiotocalini.github.io/project/monitoring).
 
+## Star History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=sergiotocalini/zabora&type=Timeline)](https://star-history.com/#sergiotocalini/zabora&Timeline)
+
+
 # Dependencies
 ## Packages
 * ksh
@@ -84,3 +89,4 @@ Please send any bug reports to sergiotocalini@gmail.com (https://github.com/serg
 *__Note:__ the installation has to be executed on the zabbix agent host and you have
 to import the template on the zabbix web. The default installation directory is
 /etc/zabbix/scripts/agentd/zabora*
+
