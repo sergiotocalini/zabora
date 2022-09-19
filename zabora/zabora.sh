@@ -92,7 +92,7 @@ else
     . /usr/local/bin/oraenv > /dev/null
 fi
 if [[ -f "${SQL%.sql}.sql" ]]; then
-    rval=`sqlplus -s ${ORACLE_USER}/${ORACLE_PASS} @${SQL} "${SQL_ARGS}"`
+    rval=`sqlplus -s ${ORACLE_USER}/${ORACLE_PASS}@${ORACLE_SID} @${SQL} "${SQL_ARGS}"`
     rcode="${?}"
     if [[ ${JSON} -eq 1 ]]; then
        set -A rval ${rval}
