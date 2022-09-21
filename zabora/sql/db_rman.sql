@@ -7,7 +7,7 @@ SELECT TO_NUMBER (
             DECODE (STATUS,
                     'COMPLETED', 0,
                     'RUNNING', 0,
-                    'COMPLETED WITH WARNINGS', 1,
+                    'COMPLETED WITH WARNINGS', 0,
                     'COMPLETED WITH ERRORS', 2,
                     3))
             "ESTADO",
